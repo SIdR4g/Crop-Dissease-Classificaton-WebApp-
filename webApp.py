@@ -26,9 +26,19 @@ def load_image(image_file):
 
 def main():
     st.title("Crop dissease classification")
+    st.sidebar.header("Crop Species")
 
-    menu = ["Apple", "Cherry", "Corn", "Grape", "Peach", "Potato", "Strawberry"]
+    menu = ["Home","Apple", "Cherry", "Corn", "Grape", "Peach", "Potato", "Strawberry"]
     choice = st.sidebar.selectbox("Menu",menu)
+    
+    if choice == "Home":
+        st.image('./index.jpeg', width =  720)
+
+        st.subheader("Choose the Crop for which you want to identify the dissease")
+
+
+
+    
     if choice == "Apple":
 
         st.subheader(choice)
