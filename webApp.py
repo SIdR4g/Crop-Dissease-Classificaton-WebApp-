@@ -36,8 +36,6 @@ def main():
 
         st.subheader("Choose the Crop for which you want to identify the dissease")
 
-
-
     
     if choice == "Apple":
 
@@ -45,11 +43,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
 
             img = load_image(image_file)
             st.image(img,width=480)
@@ -58,11 +52,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open(choice+'_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
@@ -78,11 +69,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
 
             img = load_image(image_file)
             st.image(img,width=480)
@@ -91,11 +78,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
 
             with open(choice+'_class.pkl','rb') as clas:
@@ -111,12 +95,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
-
             img = load_image(image_file)
             st.image(img,width=480)
             st.write(image_file)
@@ -124,11 +103,7 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
-
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
 
 
@@ -146,11 +121,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
 
             img = load_image(image_file)
             st.image(img,width=480)
@@ -159,11 +130,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open(choice+'_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
@@ -180,12 +148,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
-
             img = load_image(image_file)
             st.image(img,width=480)
             st.write(image_file)
@@ -193,11 +156,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open('_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
@@ -214,12 +174,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
-
             img = load_image(image_file)
             st.image(img,width=480)
             st.write(image_file)
@@ -227,11 +182,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open(choice+'_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
@@ -248,12 +200,7 @@ def main():
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
 
-            # To See Details
             st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
-
             img = load_image(image_file)
             st.image(img,width=480)
             st.write(image_file)
@@ -261,11 +208,7 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
-
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open(choice+'_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
