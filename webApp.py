@@ -25,31 +25,21 @@ def load_image(image_file):
 plt.rcParams['font.family'] = "serif"
 
 def main():
-    st.title("      Crop dissease classification")
-    st.sidebar.header("Crop Species")
+    st.title("      Crop dissease classification") #Main Title of WebApp
+    st.sidebar.header("Crop Species") # Sidebar consisting of names of species of crops
 
     menu = ["Home","Apple", "Cherry", "Corn", "Grape", "Peach", "Potato", "Strawberry"]
     choice = st.sidebar.selectbox("Menu",menu)
     
     if choice == "Home":
         st.image('./index.jpeg', width =  720)
-
         st.subheader("Choose the Crop for which you want to identify the dissease")
-
-
-
     
     elif choice in menu[1:]:
 
         st.subheader(choice)
         image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
         if image_file is not None:
-
-            # To See Details
-            st.write(type(image_file))
-            # st.write(dir(image_file))
-            # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-            # st.write(file_details)
 
             img = load_image(image_file)
             st.image(img,width=480)
@@ -58,11 +48,8 @@ def main():
             IMG_SIZE = (1,128, 128,3)
             img_array = np.resize(np.array(img),IMG_SIZE)
             st.write(img_array.shape)
-            # img_array = tf.image.resize(img_array, size=IMG_SIZE)
-            # st.write(img_array)
 
             dataset = tf.data.Dataset.from_tensor_slices(img_array)
-            # dataset = dataset.map(_parse_function)
             dataset = dataset.batch(1)
             with open(choice+'_class.pkl','rb') as clas:
                 classes = pickle.load(clas)
@@ -72,15 +59,15 @@ def main():
             reconstructed_model = load_model(choice+".h5")
             out = reconstructed_model.predict(dataset)
             
-            fig = plt.figure(figsize=(10, 4))  
-            sb.set_context('poster')          
-            b = plt.barh( y=classes, width = np.reshape(out, (-1,)), color = 'darkred')
-            b[np.argmax(out)].set_color('green')
-            plt.xlim(0,1)
-            plt.xlabel("Probability ofeach dissease")            
-            
-            st.pyplot(fig)
-            # st.write(classes[np.argmax(out)])
+#             fig = plt.figure(figsize=(10, 4))  
+#             sb.set_context('poster')          
+#             b = plt.barh( y=classes, width = np.reshape(out, (-1,)), color = 'darkred')
+#             b[np.argmax(out)].set_color('green')
+#             plt.xlim(0,1)
+#             plt.xlabel("Probability ofeach dissease")            
+#             st.pyplot(fig)
+		
+            st.text("The dissease is "+str(classes[np.argmax(out)])+ " with a probability of "+ str(np.max(out)))
 
 
     else:
